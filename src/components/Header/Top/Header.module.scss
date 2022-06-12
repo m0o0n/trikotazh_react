@@ -1,0 +1,68 @@
+.wrapper_head {
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .logo {
+    position: relative;
+    height: 70px;
+    width: 320px;
+    img {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .phone_schedule {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .phone {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 40px;
+      p {
+        font-size: 18px;
+        font-weight: 700;
+        color: red;
+        font-family: 'Poppins', sans-serif;
+      }
+      img {
+        position: relative;
+        height: 30px;
+        width: 30px;
+        padding: 0 5px;
+      }
+      span {
+        padding: 0 5px;
+        font-size: 20px;
+        color: red;
+        transform: rotate(105deg);
+      }
+      a {
+        font-weight: 600;
+        color: black;
+        font-family: 'Poppins', sans-serif;
+      }
+    }
+
+    .work_schedule {
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      // display: flex;
+      // justify-content: center;
+    }
+  }
+
+  .social {
+    i {
+      font-size: 22px;
+      color: black;
+    }
+  }
+}

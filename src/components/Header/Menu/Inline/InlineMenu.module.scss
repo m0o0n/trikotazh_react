@@ -1,0 +1,55 @@
+.wrapper_menu_container {
+  position: relative;
+  height: 70px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  ul.wrapper_menu {
+    position: relative;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+
+    li {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      color: white;
+      flex-grow: 1;
+      padding: 0 15px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      &:first-child {
+        margin: 0 10px;
+      }
+      &:hover {
+        background: rgba($color: #d6d4d4, $alpha: 0.6);
+        transition: 0.3s all;
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+      }
+    }
+  }
+  .cart_search {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+    div {
+      position: relative;
+      padding: 0 5px;
+      i {
+        color: white;
+        font-size: 20px;
+      }
+    }
+  }
+}
