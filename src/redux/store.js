@@ -1,14 +1,12 @@
 import React from 'react';
 import '../index.scss';
-import {addProduct, upDateNewProductText} from './state';
+import { addProduct, upDateNewProductText } from './state';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import App from '../App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const rerenderEntireTree = state => {
-  console.log('sss');
   root.render(
       <BrowserRouter>
         <App

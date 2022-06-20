@@ -17,6 +17,21 @@
     "linebreak-style": 0,
     "no-console": "warn",
     "react/prop-types": "off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+        }
+      }
+    ],
+    "object-curly-spacing": ["error", "always", { "objectsInObjects": false }],
+    "no-trailing-spaces": ["error", { "skipBlankLines": false }],
+    "new-cap": ["error", { "capIsNew": false }]
   }
 }

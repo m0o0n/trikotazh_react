@@ -1,12 +1,11 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 
 import s from './Catalog.module.scss';
 const SubMenu = props => {
-  console.log(props);
   return (
     <div>
       <ul
-        style={{width: document.documentElement.clientWidth}}
+        style={{ width: document.documentElement.clientWidth }}
         onMouseLeave={() => props.mouseLeave()}
         onMouseOver={() => props.overSub()}
         ref={props.SubMenuRef}

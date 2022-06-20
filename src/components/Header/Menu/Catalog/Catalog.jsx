@@ -1,9 +1,6 @@
-import React, {useEffect, useRef} from 'react';
-import {useState} from 'react';
-
+import React from 'react';
 import s from './Catalog.module.scss';
 import SubMenu from './SubMenu';
-
 class Catalog extends React.Component {
   constructor() {
     super();
@@ -37,7 +34,7 @@ class Catalog extends React.Component {
         </li>
 
         <SubMenu
-          SubMenuRef={(el) => (this.SubMenu = el)}
+          SubMenuRef={el => (this.SubMenu = el)}
           mouseLeave={() => this.mouseLeave()}
           overSub={() => this.overSub()}
         />
