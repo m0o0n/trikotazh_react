@@ -1,4 +1,13 @@
-const AddPostReducer =(state, action)=>{
+const InitialState = {
+  Products: [
+    { id: 0, name: 'Трехнитка петля футер ПЕНЬЕ КОМПАКТ Турция' },
+    { id: 1, name: 'Двунитка ПЕНЬЕ КОМПАКТ Турция' },
+    { id: 2, name: 'Трехнитка ПЕНЬЕ КОМПАКТ Турция' },
+  ],
+  newProductText: '',
+};
+
+const AddPostReducer =(state = InitialState, action)=>{
   switch (action.type) {
     case 'AddProduct':
       const newProduct = {
