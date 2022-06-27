@@ -5,16 +5,16 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from '../src/redux/redux-store';
+import StoreContext from './StoreContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const rerenderEntireTree = state => {
   root.render(
       <BrowserRouter>
-        <App
-          state={state}
-          dispatch={store.dispatch.bind(store)}
-          newProductText={state.ProductPage.newProductText}
-        />
+        <StoreContext.Provider value={store}>
+          <App/>
+
+        </StoreContext.Provider>
       </BrowserRouter>,
   );
 };

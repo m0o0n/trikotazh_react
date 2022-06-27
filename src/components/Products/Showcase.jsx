@@ -5,12 +5,11 @@ import Product from './Product/Product';
 const ShowCase = props => {
   const postName = React.createRef();
   const addProd = () => {
-    props.dispatch({ type: 'AddProduct' });
-    props.dispatch({ type: 'upDateNewProductText', newText: '' });
+    props.addProd();
   };
   const OnPostChange = () => {
     const text = postName.current.value;
-    props.dispatch({ type: 'upDateNewProductText', newText: text });
+    props.OnPostChange(text);
   };
   return (
     <div>
