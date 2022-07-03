@@ -7,7 +7,6 @@ const ShowCase = props => {
   const postName = React.createRef();
   const addProd = () => {
     props.addProd();
-    props.dispatch({ type: 'upDateNewProductText', newText: '' });
   };
   const OnPostChange = () => {
     const text = postName.current.value;

@@ -9,11 +9,7 @@ const App = props => {
     <div className="App">
       <header className="App-header">
         <Wrapper />
-        <ShowCase
-          dispatch={props.dispatch}
-          state={props.state}
-          newProductText={props.newProductText}
-        />
+        <ShowCase />
       </header>
     </div>
   );
