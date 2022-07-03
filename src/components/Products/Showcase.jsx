@@ -1,16 +1,17 @@
 /* eslint-disable object-curly-spacing */
 import React from 'react';
 import s from './Products.module.scss';
+import { connect } from 'react-redux';
 import Product from './Product/Product';
 const ShowCase = props => {
   const postName = React.createRef();
   const addProd = () => {
-    props.dispatch({ type: 'AddProduct' });
+    props.addProd();
     props.dispatch({ type: 'upDateNewProductText', newText: '' });
   };
   const OnPostChange = () => {
     const text = postName.current.value;
-    props.dispatch({ type: 'upDateNewProductText', newText: text });
+    props.OnPostChange(text);
   };
   return (
     <div>
@@ -32,4 +33,15 @@ const ShowCase = props => {
     </div>
   );
 };
-export default ShowCase;
+const mapStateToProps = state => ({
+  state: state,
+});
+const mapDispatchToProps = dispatch => ({
+  addProd() {
+    dispatch({ type: 'AddProduct' });
+  },
+  OnPostChange(newText) {
+    dispatch({ type: 'upDateNewProductText', newText });
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ShowCase);

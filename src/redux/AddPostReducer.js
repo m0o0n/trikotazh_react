@@ -10,15 +10,15 @@ const InitialState = {
 const AddPostReducer =(state = InitialState, action)=>{
   switch (action.type) {
     case 'AddProduct':
-      const newProduct = {
-        id: 4,
-        name: state.newProductText,
+      return {
+        ...state,
+        Products: [...state.Products, { id: 4, name: state.newProductText }],
       };
-      state.Products.push(newProduct);
-      return state;
     case 'upDateNewProductText':
-      state.newProductText = action.newText;
-      return state;
+      return {
+        ...state,
+        newProductText: action.newText,
+      };
     default: return state;
   }
 };
