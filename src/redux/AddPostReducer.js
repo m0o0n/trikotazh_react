@@ -1,13 +1,31 @@
 const InitialState = {
   Products: [
-    { id: 0, name: 'Трехнитка петля футер ПЕНЬЕ КОМПАКТ Турция' },
-    { id: 1, name: 'Двунитка ПЕНЬЕ КОМПАКТ Турция' },
-    { id: 2, name: 'Трехнитка ПЕНЬЕ КОМПАКТ Турция' },
+    {
+      id: 0,
+      name: 'Трехнитка петля футер ПЕНЬЕ КОМПАКТ Турция',
+      cost1: 185,
+      cost10: 160,
+      cost50: 135,
+    },
+    {
+      id: 1,
+      name: 'Двунитка ПЕНЬЕ КОМПАКТ Турция',
+      cost1: 185,
+      cost10: 160,
+      cost50: 135,
+    },
+    {
+      id: 2,
+      name: 'Трехнитка ПЕНЬЕ КОМПАКТ Турция',
+      cost1: 185,
+      cost10: 160,
+      cost50: 135,
+    },
   ],
   newProductText: '',
 };
 
-const AddPostReducer =(state = InitialState, action)=>{
+const AddPostReducer = (state = InitialState, action) => {
   switch (action.type) {
     case 'AddProduct':
       return {
@@ -19,7 +37,8 @@ const AddPostReducer =(state = InitialState, action)=>{
         ...state,
         newProductText: action.newText,
       };
-    default: return state;
+    default:
+      return state;
   }
 };
 export default AddPostReducer;

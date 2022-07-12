@@ -7,16 +7,16 @@ import App from '../App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const rerenderEntireTree = state => {
-  root.render(
-      <BrowserRouter>
-        <App
-          state={state}
-          addProduct={addProduct}
-          updateText={upDateNewProductText}
-          newProductText={state.ProductPage.newProductText}
-        />
-      </BrowserRouter>,
-  );
+	root.render(
+		<BrowserRouter>
+			<App
+				state={state}
+				addProduct={addProduct}
+				updateText={upDateNewProductText}
+				newProductText={state.ProductPage.newProductText}
+			/>
+		</BrowserRouter>
+	);
 };
 
 // If you want to start measuring performance in your app, pass a function

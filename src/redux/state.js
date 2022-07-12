@@ -13,8 +13,7 @@ const store = {
   getState() {
     return this._state;
   },
-  rerenderEntireTree() {
-  },
+  rerenderEntireTree() {},
   subscribe(observer) {
     this.rerenderEntireTree = observer;
   },

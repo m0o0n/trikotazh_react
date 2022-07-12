@@ -25,7 +25,16 @@ const ShowCase = props => {
             <button onClick={addProd}>Add</button>
           </div>
           {props.state.ProductPage.Products.map((p, i) => {
-            return <Product key={i} name={p.name} />;
+            return (
+              <Product
+                key={i}
+                id={p.id}
+                name={p.name}
+                cost1={p.cost1}
+                cost10={p.cost10}
+                cost50={p.cost50}
+              />
+            );
           })}
         </div>
       </div>
