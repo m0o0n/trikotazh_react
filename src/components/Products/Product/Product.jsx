@@ -43,7 +43,15 @@ const Product = props => {
               {calculateCost(count).cost_perM} грн/м
             </div>
             <div className={s.quantity}>
-              <input type="number" min="1" step="1" value={count} />
+              <input
+                type="number"
+                min="1"
+                step="1"
+                value={count}
+                onChange={e => {
+                  setCount(e.target.value);
+                }}
+              />
               <div className={s.quantity_nav}>
                 <div className={s.quantity_nav_shifts}>
                   <div

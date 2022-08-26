@@ -20,7 +20,7 @@ const ShowCase = props => {
             <textarea
               onChange={OnPostChange}
               ref={postName}
-              value={props.newProductText}
+              placeholder={props.newProductText}
             />
             <button onClick={addProd}>Add</button>
           </div>
