@@ -1,7 +1,14 @@
 import React from 'react';
 import Catalog from '../Catalog/Catalog';
 import s from './InlineMenu.module.scss';
-const InlineMenu = () => {
+import { LogoutAC } from '../../../../redux/AuthReducer';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+const InlineMenu = props => {
+  const LogOut = () => {
+    localStorage.removeItem('token');
+    props.LogoutAC();
+  };
   return (
     <div className={s.wrapper_menu_container}>
       <ul className={s.wrapper_menu}>
@@ -19,8 +26,33 @@ const InlineMenu = () => {
         <div className={s.cart}>
           <i className="fas fa-shopping-cart"></i>
         </div>
+        <div>
+          {props.isAuth ? (
+            <div
+              className={s.auth_button}
+              onClick={() => LogOut()}
+              aria-label="Logout"
+            ></div>
+          ) : (
+            <NavLink
+              aria-label="login"
+              className={s.auth_button}
+              to="/auth"
+            ></NavLink>
+          )}
+        </div>
+        {props.role === 'ADMIN' ? (
+          <div className={s.admin} aria-label="Admin Page"></div>
+        ) : null}
       </div>
     </div>
   );
 };
-export default InlineMenu;
+const mapStateToProps = state => {
+  return {
+    state: state,
+    isAuth: state.Auth.isAuth,
+    role: state.Auth.role,
+  };
+};
+export default connect(mapStateToProps, { LogoutAC })(InlineMenu);
