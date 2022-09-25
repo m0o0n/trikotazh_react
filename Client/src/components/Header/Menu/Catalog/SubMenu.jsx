@@ -1,9 +1,84 @@
 import React from 'react';
-
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import {
+  FetchSubTypesThunk,
+  initSubTypesThunk,
+} from '../../../../redux/SubTypesReducer';
+import {
+  FetchTypesThunk,
+  initTypesThunk,
+} from '../../../../redux/TypesReducer';
 import s from './Catalog.module.scss';
 const SubMenu = props => {
+  useEffect(() => {
+    props.FetchSubTypesThunk();
+    props.FetchTypesThunk();
+    props.initSubTypesThunk();
+    props.initTypesThunk();
+  }, []);
+  if (!props.initializeSubTypes && !props.initializeTypes) {
+    <div>loading</div>;
+  } else {
+    console.log(props);
+    return (
+      <div>
+        <ul
+          style={{ width: document.documentElement.clientWidth }}
+          onMouseLeave={() => props.mouseLeave()}
+          onMouseOver={() => props.overSub()}
+          ref={props.SubMenuRef}
+          className={s.wraper_menu_sub_menu}
+        >
+          {props.state.SubTypes.Subtypes.map(li => {
+            return (
+              <Customli
+                key={li.id}
+                id={li.id}
+                name={li.name}
+                types={props.Types}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+};
+const mapStateToProps = state => {
+  return {
+    state: state,
+    SubTypes: state.SubTypes.Subtypes,
+    Types: state.Types.Types,
+    initializeSubTypes: state.SubTypes.initializeSubTypes,
+    initializeTypes: state.Types.initializeTypes,
+  };
+};
+export default connect(mapStateToProps, {
+  FetchSubTypesThunk,
+  FetchTypesThunk,
+  initSubTypesThunk,
+  initTypesThunk,
+})(SubMenu);
+const Customli = props => {
   return (
-    <div>
+    <li>
+      <div className={s.article_sub_menu_el}>{props.name}</div>
+      {props.types.map(nav => {
+        if (nav.subTypeId === props.id) {
+          return (
+            <NavLink key={nav.id} to={`/products/${nav.id}`}>
+              {nav.name}
+            </NavLink>
+          );
+        }
+      })}
+    </li>
+  );
+};
+
+/* <div>
       <ul
         style={{ width: document.documentElement.clientWidth }}
         onMouseLeave={() => props.mouseLeave()}
@@ -63,7 +138,4 @@ const SubMenu = props => {
           <a href="#">Рефлективная ткань</a>
         </li>
       </ul>
-    </div>
-  );
-};
-export default SubMenu;
+    </div> */
