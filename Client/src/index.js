@@ -7,6 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from '../src/redux/redux-store';
 import Auth from './components/Auth/Auth';
+import Admin from './components/Admin/Admin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,6 +17,7 @@ root.render(
         <Routes>
           <Route path='/' element={<App />}/>
           <Route path='/auth' element={<Auth />}/>
+          <Route path='/admin' element={<Admin />} />
         </Routes>
       </Provider>
     </BrowserRouter>,

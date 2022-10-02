@@ -42,7 +42,11 @@ const InlineMenu = props => {
           )}
         </div>
         {props.role === 'ADMIN' ? (
-          <div className={s.admin} aria-label="Admin Page"></div>
+          <NavLink
+            className={s.admin}
+            aria-label="Admin Page"
+            to="/admin"
+          ></NavLink>
         ) : null}
       </div>
     </div>

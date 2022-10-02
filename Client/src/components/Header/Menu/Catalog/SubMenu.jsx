@@ -21,7 +21,6 @@ const SubMenu = props => {
   if (!props.initializeSubTypes && !props.initializeTypes) {
     <div>loading</div>;
   } else {
-    console.log(props);
     return (
       <div>
         <ul

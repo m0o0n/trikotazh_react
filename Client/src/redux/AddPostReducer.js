@@ -23,6 +23,7 @@ const InitialState = {
     },
   ],
   newProductText: '',
+  previewFile: null,
 };
 
 const AddPostReducer = (state = InitialState, action) => {
@@ -36,6 +37,11 @@ const AddPostReducer = (state = InitialState, action) => {
       return {
         ...state,
         newProductText: action.newText,
+      };
+    case 'addImage':
+      return {
+        ...state,
+        previewFile: action.newText,
       };
     default:
       return state;

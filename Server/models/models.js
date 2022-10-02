@@ -25,7 +25,7 @@ const Product = sequelize.define('product', {
     img: {type: DataTypes.STRING, allowNull: false}, 
 })
 
-const Brand = sequelize.define('brand', {
+const BrandCountry = sequelize.define('brandCountry', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
 })
@@ -59,8 +59,8 @@ BasketProduct.belongsTo(Basket)
 Type.hasMany(Product)
 Product.belongsTo(Type)
 
-Brand.hasMany(Product)
-Product.belongsTo(Brand)
+BrandCountry.hasMany(Product)
+Product.belongsTo(BrandCountry)
 
 Product.hasMany(BasketProduct)
 BasketProduct.belongsTo(Product)
@@ -68,8 +68,8 @@ BasketProduct.belongsTo(Product)
 Product.hasMany(ProductInfo, {as: 'info'})
 ProductInfo.belongsTo(Product)
 
-Type.belongsToMany(Brand, {through: TypeBrand})
-Brand.belongsToMany(Type, {through: TypeBrand})
+Type.belongsToMany(BrandCountry, {through: TypeBrand})
+BrandCountry.belongsToMany(Type, {through: TypeBrand})
 
 SubType.hasMany(Type)
 Type.belongsTo(SubType)
@@ -81,7 +81,7 @@ module.exports ={
     Product,
     ProductInfo,
     Type,
-    Brand,
+    BrandCountry,
     TypeBrand,
     SubType
 }
